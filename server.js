@@ -10,13 +10,13 @@ const image = require('./controllers/image');
 const knex = require('knex')({
   client: 'pg',
   connection: {
-    connectionString: 'https://face-recognition-server-3wwr.onrender.com/',
+    connectionString: process.env.DB_URL,
     ssl: { rejectUnauthorized: false },
-    host: 'dpg-cko29p9rfc9c73d2cji0-a.frankfurt-postgres.render.com',
+    host: process.env.DB_HOST,
     port: 5432,
-    user: 'face_recognition_db_cui4_user',
-    password: 'kmoxl6WchUGQ4tDmypCzgFQBId0piEs2',
-    database: 'face_recognition_db_cui4',
+    user: process.env.DB_USERNAME,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_DATABASE,
   },
 });
 
