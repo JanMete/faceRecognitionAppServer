@@ -28,7 +28,7 @@ const handleRegister = (req, res, knex, bcrypt) => {
         .then(trx.commit)
         .catch(trx.rollback);
     })
-    .catch((err) => res.status(400).json(console.log(err)));
+    .catch((err) => res.status(400).json('Unable to register'));
 };
 module.exports = {
   handleRegister: handleRegister,
