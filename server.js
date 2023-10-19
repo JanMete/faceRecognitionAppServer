@@ -6,6 +6,7 @@ import register from './controllers/register';
 import signin from './controllers/signin';
 import profile from './controllers/profile';
 import image from './controllers/image';
+import fetch from 'node-fetch';
 
 const knex = require('knex')({
   client: 'pg',
