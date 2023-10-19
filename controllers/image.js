@@ -1,3 +1,5 @@
+import fetch from 'node-fetch';
+
 const returnClarifaiReturnOptions = (imageUrl) => {
   const PAT = process.env.API_CLARIFAI;
   const USER_ID = 'w9l10r27j13x';
