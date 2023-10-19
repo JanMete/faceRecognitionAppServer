@@ -1,15 +1,17 @@
 import express from 'express';
 import cors from 'cors';
 import bcrypt from 'bcryptjs';
+import knex from 'knex';
 import register from './controllers/register.js';
 import signin from './controllers/signin.js';
 import profile from './controllers/profile.js';
 import image from './controllers/image.js';
+
 import fetch from 'node-fetch';
 
 const app = express();
 
-const knex = require('knex')({
+const db = knex({
   client: 'pg',
   connection: {
     connectionString: process.env.DB_URL,
@@ -30,19 +32,19 @@ app.get('/', (req, res) => {
 });
 
 app.post('/signin', (req, res) => {
-  signin.handleSignin(req, res, knex, bcrypt);
+  signin.handleSignin(req, res, db, bcrypt);
 });
 
 app.post('/register', (req, res) => {
-  register.handleRegister(req, res, knex, bcrypt);
+  register.handleRegister(req, res, db, bcrypt);
 });
 
 app.get('/profile/:id', (req, res) => {
-  profile.handleProfileGet(req, res, knex);
+  profile.handleProfileGet(req, res, db);
 });
 
 app.put('/image', (req, res) => {
-  image.handleImage(req, res, knex);
+  image.handleImage(req, res, db);
 });
 app.post('/imageurl', (req, res) => {
   image.handleApiCall(req, res);

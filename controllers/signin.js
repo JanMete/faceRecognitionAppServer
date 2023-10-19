@@ -1,10 +1,9 @@
-const handleSignin = (req, res, knex, bcrypt) => {
+const handleSignin = (req, res, db, bcrypt) => {
   const { password, email } = req.body;
   if (!email || !password) {
     return res.status(404).json('Incorrect form submission');
   }
-  knex
-    .select('email', 'hash')
+  db.select('email', 'hash')
     .from('login')
     .where({
       email: email,
@@ -12,7 +11,7 @@ const handleSignin = (req, res, knex, bcrypt) => {
     .then((data) => {
       const isValid = bcrypt.compareSync(password, data[0].hash);
       if (isValid) {
-        return knex
+        return db
           .select('*')
           .from('users')
           .where({

@@ -1,7 +1,6 @@
-const handleProfileGet = (req, res, knex) => {
+const handleProfileGet = (req, res, db) => {
   const { id } = req.params;
-  knex
-    .select('*')
+  db.select('*')
     .from('users')
     .where({ id: id })
     .then((user) => {
