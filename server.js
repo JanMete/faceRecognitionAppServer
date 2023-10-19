@@ -1,12 +1,13 @@
 import express from 'express';
 import cors from 'cors';
-const app = express();
 import bcrypt from 'bcryptjs';
-import register from './controllers/register';
-import signin from './controllers/signin';
-import profile from './controllers/profile';
-import image from './controllers/image';
+import register from '../controllers/register.js';
+import signin from './controllers/signin.js';
+import profile from './controllers/profile.js';
+import image from './controllers/image.js';
 import fetch from 'node-fetch';
+
+const app = express();
 
 const knex = require('knex')({
   client: 'pg',
