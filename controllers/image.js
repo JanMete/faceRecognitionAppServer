@@ -55,7 +55,5 @@ const handleImage = (req, res, knex) => {
     })
     .catch((err) => res.status(404).json('Unable to get entries.'));
 };
-module.exports = {
-  handleImage: handleImage,
-  handleApiCall: handleApiCall,
-};
+
+export default (handleImage, handleApiCall);

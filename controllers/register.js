@@ -30,6 +30,5 @@ const handleRegister = (req, res, knex, bcrypt) => {
     })
     .catch((err) => res.status(400).json('Unable to register'));
 };
-module.exports = {
-  handleRegister: handleRegister,
-};
+
+export default handleRegister;

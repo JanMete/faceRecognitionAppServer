@@ -13,6 +13,5 @@ const handleProfileGet = (req, res, knex) => {
     })
     .catch((err) => res.status(404).json('Error getting user'));
 };
-module.exports = {
-  handleProfileGet: handleProfileGet,
-};
+
+export default handleProfileGet;

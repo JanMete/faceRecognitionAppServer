@@ -29,6 +29,4 @@ const handleSignin = (req, res, knex, bcrypt) => {
     .catch((err) => res.status(404).json('Wrong credentials.'));
 };
 
-module.exports = {
-  handleSignin: handleSignin,
-};
+export default handleSignin;
